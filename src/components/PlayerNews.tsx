@@ -71,110 +71,123 @@ const categoryStyles = {
 
 export const PlayerNews = () => {
   return (
-    <div className="container mx-auto px-6 py-16">
-      {/* Section Header */}
-      <div className="mb-12 space-y-4 animate-fade-in">
-        <div className="flex items-center gap-4">
-          <div className="w-2 h-16 bg-gradient-to-b from-success to-primary rounded-full" />
+    // Reduced overall vertical padding: py-16 -> py-8
+    <div className="container mx-auto px-6 py-8">
+      
+      {/* Section Header - Compressed */}
+      <div className="mb-8 space-y-2 animate-fade-in"> {/* Reduced margin and space-y */}
+        <div className="flex items-center gap-3"> {/* Reduced gap */}
+          {/* Reduced decorative bar height: h-16 -> h-10 */}
+          <div className="w-2 h-10 bg-gradient-to-b from-success to-primary rounded-full" />
           <div>
-            <h2 className="text-5xl md:text-6xl font-display font-black text-foreground uppercase tracking-tight glow-text">
+            {/* Reduced header font size: text-5xl md:text-6xl -> text-3xl md:text-4xl */}
+            <h2 className="text-3xl md:text-4xl font-display font-black text-foreground uppercase tracking-tight glow-text">
               News Feed
             </h2>
-            <p className="text-lg text-muted-foreground font-body mt-2 tracking-wide">
+            {/* Reduced description font size: text-lg -> text-sm */}
+            <p className="text-sm text-muted-foreground font-body mt-1 tracking-wide">
               Latest Updates & Stories
             </p>
           </div>
         </div>
       </div>
 
-      {/* Featured Article */}
-      <Card className="gradient-card border-2 border-primary/50 p-8 md:p-10 mb-8 hover-lift group animate-fade-in cursor-pointer">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-4">
-            <Badge className={`${categoryStyles[newsArticles[0].category]} border-2 font-display uppercase text-sm px-3 py-1.5`}>
+      {/* Featured Article - Compressed */}
+      <Card className="gradient-card border-2 border-primary/50 p-6 md:p-8 mb-6 hover-lift group animate-fade-in cursor-pointer"> {/* Reduced padding and margin */}
+        <div className="grid md:grid-cols-3 gap-6"> {/* Reduced gap */}
+          <div className="md:col-span-2 space-y-3"> {/* Reduced space-y */}
+            <Badge className={`${categoryStyles[newsArticles[0].category]} border-2 font-display uppercase text-xs px-3 py-1`}> {/* Reduced badge size/padding */}
               {newsArticles[0].category}
             </Badge>
-            <h3 className="text-3xl md:text-4xl font-display font-black text-foreground group-hover:text-primary transition-colors leading-tight">
+            {/* Reduced title font size: text-3xl md:text-4xl -> text-2xl md:text-3xl */}
+            <h3 className="text-2xl md:text-3xl font-display font-black text-foreground group-hover:text-primary transition-colors leading-snug"> {/* Tightened line height */}
               {newsArticles[0].title}
             </h3>
-            <p className="text-lg text-muted-foreground font-body leading-relaxed">
+            {/* Reduced excerpt font size: text-lg -> text-sm. Tightened line height */}
+            <p className="text-sm text-muted-foreground font-body leading-snug line-clamp-2">
               {newsArticles[0].excerpt}
             </p>
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
+            <div className="flex items-center gap-4 text-xs text-muted-foreground pt-1 border-t border-border/30"> {/* Reduced gap and font size */}
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5" />
                 <span className="font-body">{newsArticles[0].date}</span>
               </div>
               <span className="font-body">{newsArticles[0].readTime} read</span>
-              <div className="flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" />
+              <div className="flex items-center gap-1.5">
+                <MessageSquare className="w-3.5 h-3.5" />
                 <span className="font-body">{newsArticles[0].reactions}</span>
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center md:justify-end">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-6xl group-hover:scale-110 transition-transform shadow-lg shadow-primary/30">
+          {/* Reduced Icon Size */}
+          <div className="flex items-center justify-center md:justify-end order-first md:order-last">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-4xl group-hover:scale-110 transition-transform shadow-lg shadow-primary/30"> {/* Reduced size and emoji size */}
               📰
             </div>
           </div>
         </div>
       </Card>
 
-      {/* News Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* News Grid - Compressed */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> {/* Reduced gap: gap-6 -> gap-4 */}
         {newsArticles.slice(1).map((article, index) => (
           <Card 
             key={index}
-            className="gradient-card border-2 border-border/50 p-6 hover-lift group animate-slide-in-right cursor-pointer"
+            className="gradient-card border-2 border-border/50 p-4 hover-lift group animate-slide-in-right cursor-pointer" // Reduced padding: p-6 -> p-4
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="space-y-4">
+            <div className="space-y-3"> {/* Reduced space-y: space-y-4 -> space-y-3 */}
               <div className="flex items-start justify-between gap-3">
                 <Badge className={`${categoryStyles[article.category]} border-2 font-display uppercase text-xs px-3 py-1`}>
                   {article.category}
                 </Badge>
-                <div className="text-4xl group-hover:scale-110 transition-transform">
+                {/* Reduced emoji size: text-4xl -> text-3xl */}
+                <div className="text-3xl group-hover:scale-110 transition-transform">
                   {article.category === "Interview" ? "🎤" : 
-                   article.category === "Analysis" ? "📊" : 
-                   article.category === "Breaking" ? "🔥" : "📈"}
+                    article.category === "Analysis" ? "📊" : 
+                    article.category === "Breaking" ? "🔥" : "📈"}
                 </div>
               </div>
 
-              <h3 className="text-xl font-display font-bold text-foreground group-hover:text-primary transition-colors leading-tight line-clamp-2">
+              {/* Reduced title font size: text-xl -> text-lg */}
+              <h3 className="text-lg font-display font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
                 {article.title}
               </h3>
 
-              <p className="text-sm text-muted-foreground font-body leading-relaxed line-clamp-3">
+              {/* Reduced excerpt font size: text-sm -> text-xs */}
+              <p className="text-xs text-muted-foreground font-body leading-normal line-clamp-3">
                 {article.excerpt}
               </p>
 
-              <div className="flex items-center justify-between pt-3 border-t border-border/30">
-                <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
+              {/* Footer Metrics - Compressed */}
+              <div className="flex items-center justify-between pt-2 border-t border-border/30"> {/* Reduced padding: pt-3 -> pt-2 */}
+                <div className="flex items-center gap-3 text-xs text-muted-foreground"> {/* Reduced gap: gap-4 -> gap-3 */}
+                  <div className="flex items-center gap-1"> {/* Reduced gap: gap-1.5 -> gap-1 */}
+                    <Calendar className="w-3 h-3" /> {/* Reduced icon size: w-3.5 h-3.5 -> w-3 h-3 */}
                     <span className="font-body">{article.date}</span>
                   </div>
                   <span className="font-body">{article.readTime}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <MessageSquare className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <MessageSquare className="w-3 h-3" />
                   <span className="font-body">{article.reactions}</span>
                 </div>
               </div>
 
-              <button className="w-full py-2 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-lg font-display font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group-hover:gap-3">
+              {/* Read Article Button - Compressed */}
+              <button className="w-full py-1.5 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 rounded-md font-display font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1 group-hover:gap-2 mt-2"> {/* Reduced padding/font size/rounded size */}
                 Read Article
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </Card>
         ))}
       </div>
 
-      {/* Load More */}
-      <div className="mt-12 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-        <button className="px-8 py-4 bg-gradient-to-r from-success to-primary text-primary-foreground font-display font-black text-lg uppercase tracking-wider rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-success/50 transition-all duration-300 flex items-center gap-3 mx-auto">
-          <TrendingUp className="w-5 h-5" />
+      {/* Load More Button - Compressed */}
+      <div className="mt-8 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}> {/* Reduced margin: mt-12 -> mt-8 */}
+        <button className="px-6 py-3 bg-gradient-to-r from-success to-primary text-primary-foreground font-display font-black text-base uppercase tracking-wider rounded-lg hover:scale-105 hover:shadow-lg hover:shadow-success/50 transition-all duration-300 flex items-center gap-2 mx-auto"> {/* Reduced padding/font size/rounded size */}
+          <TrendingUp className="w-4 h-4" />
           More News
         </button>
       </div>
