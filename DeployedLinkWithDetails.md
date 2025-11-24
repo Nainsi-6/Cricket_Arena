@@ -1,6 +1,8 @@
-🏏 Cricket Arena - Player Profile Redesign (The Hero Profile Project)
-🚀 Live Access
-Live Demo: https://cricket-arena-hardik-pandya.vercel.app/
+Cricket Arena - Player Profile Redesign: Game-Based UI/UX
+The Hero Profile Project
+🚀 Status: Deployed (Version 1.0)
+Link: https://cricket-arena-hardik-pandya.vercel.app/
+Github Repo: https://github.com/Nainsi-6/Cricket_Arena
 
 ✨ The Pitch: Why We Nuked the Tables
 We looked at the old, spreadsheet-style cricket profiles and saw a massive disconnect: cricket players are real-life arena champions, but their stats looked like tax forms. The goal wasn't just a reskin; it was a metaphorical rewrite.
@@ -35,40 +37,14 @@ Visual Progression: Career milestones are visualized as an RPG Talent Tree, turn
 
 Reduced Cognitive Load: By using visual bars, radial charts, and icon-driven battle logs, we estimate we reduced the initial cognitive load by over 80% compared to the original tabular presentation.
 
-🛠️ Technology Stack & Setup
-The project is built using a modern frontend stack focused on performance and developer experience.
+🛠️ Tech Stack Notes
+Framework: React + TypeScript
 
-Technology Stack (The Gear)
-Framework: React + TypeScript (For component logic and type safety.)
+Styling: Tailwind CSS (Customized for the dark gaming theme)
 
-Styling: Tailwind CSS (Highly customized for the dark gaming aesthetic.)
+Deployment: Vercel
 
-Deployment: Vercel (For hosting and Continuous Deployment.)
-
-Icons: Lucide React (Scalable, high-quality vector icons.)
-
-Installation and Local Setup
-To clone and run the project locally, follow these simple steps:
-
-Clone the repository:
-
-Bash
-
-git clone https://github.com/Nainsi-6/Cricket_Arena.git
-cd Cricket_Arena
-Install dependencies (using Bun or npm):
-
-Bash
-
-bun install
-# or npm install
-Run the development server:
-
-Bash
-
-bun run dev
-# or npm run dev
-The application will be available at http://localhost:5173.
+Icons: Lucide React (Custom icons selected to enhance the gaming feel).
 
 ✅ Mission Success Metrics
 This design delivers on its promise to prioritize engagement and scannability. We have transformed complex information into a story and a visual hierarchy, ensuring users spend less time deciphering data and more time connecting with their champions.
