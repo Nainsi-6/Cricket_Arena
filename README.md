@@ -1,6 +1,9 @@
 🏏 Cricket Arena - Player Profile Redesign (The Hero Profile Project)
+
+
 🚀 Live Access
 Live Demo: https://cricket-arena-hardik-pandya.vercel.app/
+
 
 ✨ The Pitch: Why We Nuked the Tables
 We looked at the old, spreadsheet-style cricket profiles and saw a massive disconnect: cricket players are real-life arena champions, but their stats looked like tax forms. The goal wasn't just a reskin; it was a metaphorical rewrite.
@@ -58,13 +61,9 @@ git clone https://github.com/Nainsi-6/Cricket_Arena.git
 cd Cricket_Arena
 Install dependencies (using Bun or npm):
 
-Bash
-
 bun install
 # or npm install
 Run the development server:
-
-Bash
 
 bun run dev
 # or npm run dev
