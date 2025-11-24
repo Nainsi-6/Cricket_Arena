@@ -12,9 +12,30 @@ import { PlayerVideos } from "@/components/PlayerVideos";
 import { PlayerNews } from "@/components/PlayerNews";
 import { PlayerPhotos } from "@/components/PlayerPhotos";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Menu, BarChart3, Trophy, Calendar, Video, Newspaper, Image, Zap, Swords, TrendingUp, LayoutGrid } from "lucide-react";
 
 const Index = () => {
   const [showComparison, setShowComparison] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("overview");
+
+  const tabs = [
+    { value: "overview", label: "Overview", icon: LayoutGrid },
+    { value: "stats", label: "Stats", icon: BarChart3 },
+    { value: "records", label: "Records", icon: Trophy },
+    { value: "matches", label: "Matches", icon: Calendar },
+    { value: "videos", label: "Videos", icon: Video },
+    { value: "news", label: "News", icon: Newspaper },
+    { value: "photos", label: "Photos", icon: Image },
+    { value: "abilities", label: "Abilities", icon: Zap },
+    { value: "battles", label: "Battle Log", icon: Swords },
+    { value: "progression", label: "Progression", icon: TrendingUp },
+  ];
+
+  const handleTabChange = (value) => {
+    setActiveTab(value);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -38,72 +59,75 @@ const Index = () => {
       />
 
       {/* Navigation Tabs */}
-      <div className="sticky top-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border/50">
-        <div className="container mx-auto px-6">
-          <Tabs defaultValue="overview" className="w-full">
-            <div className="overflow-x-auto">
+      <div className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/60">
+        <div className="container mx-auto px-4 md:px-6">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:block overflow-x-auto">
               <TabsList className="inline-flex justify-start bg-transparent border-0 h-14 gap-1 min-w-full">
-                <TabsTrigger 
-                  value="overview" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Overview
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="stats" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Stats
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="records" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Records
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="matches" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Matches
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="videos" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Videos
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="news" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  News
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="photos" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Photos
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="abilities" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Abilities
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="battles" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Battle Log
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="progression" 
-                  className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
-                >
-                  Progression
-                </TabsTrigger>
+                {tabs.map((tab) => (
+                  <TabsTrigger 
+                    key={tab.value}
+                    value={tab.value} 
+                    className="font-display font-semibold uppercase tracking-wide data-[state=active]:bg-primary/20 data-[state=active]:text-primary data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-6 text-sm whitespace-nowrap"
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
               </TabsList>
+            </div>
+
+            {/* Mobile Navigation - Icon Dropdown */}
+            <div className="lg:hidden">
+              <div className="flex items-center justify-between py-3">
+                <div className="flex items-center gap-3">
+                  {tabs.find(tab => tab.value === activeTab)?.icon && (
+                    (() => {
+                      const Icon = tabs.find(tab => tab.value === activeTab).icon;
+                      return <Icon className="w-5 h-5 text-teal-400" />;
+                    })()
+                  )}
+                  <span className="font-display font-semibold uppercase tracking-wide text-sm text-white">
+                    {tabs.find(tab => tab.value === activeTab)?.label}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="p-2 rounded-lg hover:bg-teal-500/20 transition-colors"
+                  aria-label="Toggle menu"
+                >
+                  <Menu className={`w-6 h-6 text-teal-400 transition-transform duration-300 ${mobileMenuOpen ? 'rotate-90' : ''}`} />
+                </button>
+              </div>
+
+              {/* Mobile Dropdown Menu */}
+              {mobileMenuOpen && (
+                <div className="absolute left-0 right-0 bg-slate-950/95 backdrop-blur-xl border-t border-slate-800/60 shadow-2xl z-[100]">
+                  <div className="container mx-auto px-4 py-5 max-h-[70vh] overflow-y-auto">
+                    <div className="grid grid-cols-2 gap-3">
+                      {tabs.map((tab) => {
+                        const Icon = tab.icon;
+                        return (
+                          <button
+                            key={tab.value}
+                            onClick={() => handleTabChange(tab.value)}
+                            className={`flex flex-col items-center justify-center gap-2 p-4 rounded-xl transition-all duration-200 border ${
+                              activeTab === tab.value
+                                ? 'bg-teal-600/30 text-teal-400 shadow-lg shadow-teal-500/30 scale-105 border-teal-500/50'
+                                : 'bg-slate-900/70 hover:bg-slate-800/80 hover:scale-105 border-slate-700/50 text-slate-300'
+                            }`}
+                          >
+                            <Icon className={`w-6 h-6 ${activeTab === tab.value ? 'text-teal-400' : 'text-slate-400'}`} />
+                            <span className="font-display font-semibold text-xs uppercase tracking-wide text-center">
+                              {tab.label}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <TabsContent value="overview" className="mt-0">

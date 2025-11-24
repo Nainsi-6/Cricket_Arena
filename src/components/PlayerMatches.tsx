@@ -97,7 +97,7 @@ export const PlayerMatches = () => {
           <div className="w-2 h-10 bg-gradient-to-b from-primary to-accent rounded-full" />
           <div>
             <h2 className="text-3xl md:text-4xl font-display font-black text-foreground uppercase tracking-tight glow-text">
-              Battle Log
+              Matches
             </h2>
             <p className="text-sm text-muted-foreground font-body mt-1 tracking-wide">
               Recent Performance History

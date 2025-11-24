@@ -21,128 +21,132 @@ export const PlayerStats = () => {
   ];
 
   return (
-    <div className="container mx-auto px-6 py-12 space-y-8">
-      <div className="space-y-2 animate-fade-in">
-        <h2 className="text-4xl font-display font-black text-foreground uppercase tracking-wider glow-text">
+    <div className="container mx-auto px-3 sm:px-6 py-6 sm:py-12 space-y-4 sm:space-y-8">
+      <div className="space-y-1 sm:space-y-2 animate-fade-in">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-foreground uppercase tracking-wider glow-text">
           Career Statistics
         </h2>
-        <p className="text-muted-foreground font-body text-lg">Complete performance breakdown across all formats</p>
+        <p className="text-muted-foreground font-body text-sm sm:text-base md:text-lg">Complete performance breakdown across all formats</p>
       </div>
 
       {/* Batting Stats */}
-      <Card className="bg-gradient-card border-border/50 p-8 hover-lift animate-fade-in" style={{ animationDelay: '0.1s' }}>
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-6">
-            <Badge className="bg-primary/20 text-primary border-primary/50 px-4 py-1.5 font-display font-bold text-lg uppercase">
+      <Card className="bg-gradient-card border-border/50 p-3 sm:p-6 md:p-8 hover-lift animate-fade-in" style={{ animationDelay: '0.1s' }}>
+        <div className="space-y-3 sm:space-y-6">
+          <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-6">
+            <Badge className="bg-primary/20 text-primary border-primary/50 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 font-display font-bold text-xs sm:text-sm md:text-lg uppercase">
               Batting & Fielding
             </Badge>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-border/50">
-                  <th className="text-left py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Format</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Mat</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Inns</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">NO</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-primary uppercase tracking-wide">Runs</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">HS</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Ave</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">BF</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-accent uppercase tracking-wide">SR</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">100s</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">50s</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">4s</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">6s</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Ct</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">St</th>
-                </tr>
-              </thead>
-              <tbody>
-                {battingStats.map((stat, idx) => (
-                  <tr key={idx} className="border-b border-border/30 hover:bg-muted/20 transition-colors duration-300">
-                    <td className="py-4 px-3 font-display font-bold text-foreground">{stat.format}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.mat}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.inns}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.no}</td>
-                    <td className="text-center py-4 px-3 font-display font-bold text-primary text-lg">{stat.runs}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.hs}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.ave}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.bf}</td>
-                    <td className="text-center py-4 px-3 font-display font-bold text-accent">{stat.sr}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.hundreds}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.fifties}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.fours}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.sixes}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.ct}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.st}</td>
+          <div className="overflow-x-auto -mx-3 sm:mx-0">
+            <div className="inline-block min-w-full align-middle">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-border/50">
+                    <th className="text-left py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Format</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Mat</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Inns</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">NO</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-primary uppercase tracking-wide whitespace-nowrap">Runs</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">HS</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Ave</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">BF</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-accent uppercase tracking-wide whitespace-nowrap">SR</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">100s</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">50s</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">4s</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">6s</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Ct</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">St</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {battingStats.map((stat, idx) => (
+                    <tr key={idx} className="border-b border-border/30 hover:bg-muted/20 transition-colors duration-300">
+                      <td className="py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-display font-bold text-foreground text-xs sm:text-sm whitespace-nowrap">{stat.format}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.mat}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.inns}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.no}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-display font-bold text-primary text-sm sm:text-base md:text-lg">{stat.runs}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.hs}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.ave}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.bf}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-display font-bold text-accent text-xs sm:text-sm">{stat.sr}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.hundreds}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.fifties}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.fours}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.sixes}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.ct}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.st}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </Card>
 
       {/* Bowling Stats */}
-      <Card className="bg-gradient-card border-border/50 p-8 hover-lift animate-fade-in" style={{ animationDelay: '0.2s' }}>
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-6">
-            <Badge className="bg-accent/20 text-accent border-accent/50 px-4 py-1.5 font-display font-bold text-lg uppercase">
+      <Card className="bg-gradient-card border-border/50 p-3 sm:p-6 md:p-8 hover-lift animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="space-y-3 sm:space-y-6">
+          <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-6">
+            <Badge className="bg-accent/20 text-accent border-accent/50 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 font-display font-bold text-xs sm:text-sm md:text-lg uppercase">
               Bowling
             </Badge>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-border/50">
-                  <th className="text-left py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Format</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Mat</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Inns</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Balls</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Runs</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-accent uppercase tracking-wide">Wkts</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">BBI</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">BBM</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">Ave</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-primary uppercase tracking-wide">Econ</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">SR</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">4w</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">5w</th>
-                  <th className="text-center py-4 px-3 text-xs font-display font-bold text-muted-foreground uppercase tracking-wide">10w</th>
-                </tr>
-              </thead>
-              <tbody>
-                {bowlingStats.map((stat, idx) => (
-                  <tr key={idx} className="border-b border-border/30 hover:bg-muted/20 transition-colors duration-300">
-                    <td className="py-4 px-3 font-display font-bold text-foreground">{stat.format}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.mat}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.inns}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.balls}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.runs}</td>
-                    <td className="text-center py-4 px-3 font-display font-bold text-accent text-lg">{stat.wkts}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.bbi}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.bbm}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.ave}</td>
-                    <td className="text-center py-4 px-3 font-display font-bold text-primary">{stat.econ}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.sr}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.fourW}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.fiveW}</td>
-                    <td className="text-center py-4 px-3 font-body text-foreground/80">{stat.tenW}</td>
+          <div className="overflow-x-auto -mx-3 sm:mx-0">
+            <div className="inline-block min-w-full align-middle">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-border/50">
+                    <th className="text-left py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Format</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Mat</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Inns</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Balls</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Runs</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-accent uppercase tracking-wide whitespace-nowrap">Wkts</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">BBI</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">BBM</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">Ave</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-primary uppercase tracking-wide whitespace-nowrap">Econ</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">SR</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">4w</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">5w</th>
+                    <th className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 text-[10px] sm:text-xs font-display font-bold text-muted-foreground uppercase tracking-wide whitespace-nowrap">10w</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {bowlingStats.map((stat, idx) => (
+                    <tr key={idx} className="border-b border-border/30 hover:bg-muted/20 transition-colors duration-300">
+                      <td className="py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-display font-bold text-foreground text-xs sm:text-sm whitespace-nowrap">{stat.format}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.mat}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.inns}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.balls}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.runs}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-display font-bold text-accent text-sm sm:text-base md:text-lg">{stat.wkts}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.bbi}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.bbm}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.ave}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-display font-bold text-primary text-xs sm:text-sm">{stat.econ}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.sr}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.fourW}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.fiveW}</td>
+                      <td className="text-center py-2 sm:py-3 md:py-4 px-1.5 sm:px-2 md:px-3 font-body text-foreground/80 text-xs sm:text-sm">{stat.tenW}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </Card>
 
-      <div className="text-center pt-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+      <div className="text-center pt-2 sm:pt-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
         <a 
           href="#" 
-          className="inline-block text-primary hover:text-primary/80 font-display font-bold text-lg uppercase tracking-wide transition-all duration-300 hover:scale-110"
+          className="inline-block text-primary hover:text-primary/80 font-display font-bold text-sm sm:text-base md:text-lg uppercase tracking-wide transition-all duration-300 hover:scale-110"
         >
           View all stats →
         </a>

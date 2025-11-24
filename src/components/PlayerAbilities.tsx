@@ -51,60 +51,59 @@ const getTypeBadgeColor = (type: Ability["type"]) => {
 
 export const PlayerAbilities = () => {
   return (
-    <div className="container mx-auto px-6 py-8 bg-gradient-to-b from-transparent via-card/20 to-transparent">
+    <div className="container mx-auto px-3 sm:px-6 py-4 sm:py-8 bg-gradient-to-b from-transparent via-card/20 to-transparent">
       
-      {/* Section Header - Compressed */}
-      <div className="mb-6 space-y-1"> 
-        <h2 className="text-2xl font-display font-bold text-foreground uppercase tracking-wide mb-1">
+      {/* Section Header - Responsive */}
+      <div className="mb-4 sm:mb-6 space-y-0.5 sm:space-y-1"> 
+        <h2 className="text-xl sm:text-2xl font-display font-bold text-foreground uppercase tracking-wide mb-0.5 sm:mb-1">
           Signature Abilities
         </h2>
-        <p className="text-sm text-muted-foreground font-body">
+        <p className="text-xs sm:text-sm text-muted-foreground font-body">
           Career-defining performances transformed into special skills
         </p>
       </div>
 
-      {/* Main Abilities Grid */}
-      <div className="grid md:grid-cols-2 gap-4">
+      {/* Main Abilities Grid - Responsive */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {abilities.map((ability, index) => {
           const Icon = ability.icon;
           return (
             <Card 
               key={ability.name} 
-              className="gradient-card border-border/50 p-5 hover-lift group cursor-pointer animate-fade-in-up" // Increased padding: p-4 -> p-5
+              className="gradient-card border-border/50 p-3 sm:p-4 md:p-5 hover-lift group cursor-pointer animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex gap-3">
+              <div className="flex gap-2 sm:gap-3">
                 
-                {/* Icon - Increased Size */}
+                {/* Icon - Responsive Size */}
                 <div className="flex-shrink-0">
-                  <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/50 flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300"> {/* Increased size: w-12 h-12 -> w-14 h-14 */}
-                    <Icon className="w-7 h-7 text-primary" /> {/* Increased icon size: w-6 h-6 -> w-7 h-7 */}
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-primary/50 flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 space-y-2">
+                <div className="flex-1 min-w-0 space-y-1.5 sm:space-y-2">
                   <div className="flex items-start justify-between gap-2">
-                    <h3 className="text-lg font-display font-bold text-foreground uppercase tracking-wide">
+                    <h3 className="text-base sm:text-lg font-body font-bold text-foreground uppercase tracking-wide leading-tight">
                       {ability.name}
                     </h3>
-                    <Badge className={`${getTypeBadgeColor(ability.type)} font-display text-xs uppercase px-2 py-0.5`}>
+                    <Badge className={`${getTypeBadgeColor(ability.type)} font-body text-[10px] sm:text-xs uppercase px-1.5 sm:px-2 py-0.5 flex-shrink-0`}>
                       {ability.type}
                     </Badge>
                   </div>
 
-                  {/* Increased description font size: text-xs -> text-sm */}
-                  <p className="text-sm text-muted-foreground font-body leading-snug">
+                  {/* Description - Responsive */}
+                  <p className="text-xs sm:text-sm text-muted-foreground font-body leading-relaxed">
                     {ability.description}
                   </p>
 
-                  {/* Key Performance Stats - Increased font size */}
-                  <div className="pt-2 border-t border-border/30"> {/* Increased padding: pt-1 -> pt-2 */}
-                    <div className="text-xs text-muted-foreground font-body mb-0.5 uppercase tracking-wide">
+                  {/* Key Performance Stats - Responsive */}
+                  <div className="pt-1.5 sm:pt-2 border-t border-border/30">
+                    <div className="text-[10px] sm:text-xs text-muted-foreground font-body mb-0.5 uppercase tracking-wide">
                       Key Performance
                     </div>
-                    {/* Increased stats font size: text-xs -> text-sm */}
-                    <div className="text-sm font-display font-semibold text-foreground/90">
+                    <div className="text-xs sm:text-sm font-body font-semibold text-foreground/90">
                       {ability.stats}
                     </div>
                   </div>
@@ -115,34 +114,34 @@ export const PlayerAbilities = () => {
         })}
       </div>
 
-      {/* Synergy Stats - Increased Padding */}
-      <div className="mt-8">
-        <h3 className="text-lg font-display font-bold text-foreground uppercase tracking-wide mb-3 flex items-center gap-2">
-            <Cpu className="w-5 h-5 text-accent" />
+      {/* Synergy Stats - Responsive */}
+      <div className="mt-6 sm:mt-8">
+        <h3 className="text-base sm:text-lg font-display font-bold text-foreground uppercase tracking-wide mb-2 sm:mb-3 flex items-center gap-2">
+            <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
             Synergy Stats
         </h3>
-        <div className="grid md:grid-cols-3 gap-4">
-            <Card className="gradient-card border-2 border-primary/30 p-5 text-center"> {/* Increased padding: p-4 -> p-5 */}
-                <div className="text-3xl font-display font-black text-primary mb-1">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
+            <Card className="gradient-card border-2 border-primary/30 p-3 sm:p-4 md:p-5 text-center hover-lift transition-all duration-300 hover:border-primary/60 hover:shadow-lg hover:shadow-primary/20">
+                <div className="text-2xl sm:text-3xl font-display font-black text-primary mb-0.5 sm:mb-1">
                     9.1
                 </div>
-                <div className="text-xs text-muted-foreground font-body uppercase tracking-wide">
+                <div className="text-[10px] sm:text-xs text-muted-foreground font-body uppercase tracking-wide">
                     Avg Impact Rating
                 </div>
             </Card>
-            <Card className="gradient-card border-2 border-accent/30 p-5 text-center">
-                <div className="text-3xl font-display font-black text-accent mb-1">
+            <Card className="gradient-card border-2 border-accent/30 p-3 sm:p-4 md:p-5 text-center hover-lift transition-all duration-300 hover:border-accent/60 hover:shadow-lg hover:shadow-accent/20">
+                <div className="text-2xl sm:text-3xl font-display font-black text-accent mb-0.5 sm:mb-1">
                     88%
                 </div>
-                <div className="text-xs text-muted-foreground font-body uppercase tracking-wide">
+                <div className="text-[10px] sm:text-xs text-muted-foreground font-body uppercase tracking-wide">
                     Success Rate (Signature)
                 </div>
             </Card>
-            <Card className="gradient-card border-2 border-success/30 p-5 text-center">
-                <div className="text-3xl font-display font-black text-success mb-1">
+            <Card className="gradient-card border-2 border-success/30 p-3 sm:p-4 md:p-5 text-center hover-lift transition-all duration-300 hover:border-success/60 hover:shadow-lg hover:shadow-success/20">
+                <div className="text-2xl sm:text-3xl font-display font-black text-success mb-0.5 sm:mb-1">
                     12x
                 </div>
-                <div className="text-xs text-muted-foreground font-body uppercase tracking-wide">
+                <div className="text-[10px] sm:text-xs text-muted-foreground font-body uppercase tracking-wide">
                     Game-Changing Moments
                 </div>
             </Card>
